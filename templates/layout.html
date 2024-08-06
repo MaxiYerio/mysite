@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plataforma de cursos en línea">
+    <meta name="keywords"
+        content="cursos online, educación a distancia, aprendizaje en línea, desarrollo personal, formación profesional">
+    <meta name="author" content="Maximiliano Alexander Yerio">
+    <title>Academia Online</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="parallax">
+
+    <header class="header-area header-sticky">
+        <!--clase containery para no interferir en el estilo del tailwinds y dice containerla por que es el html Layout-->
+        <div class="containerla">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="mains-nav">
+
+                        <a href="{{ url_for('home') }}" class="logoo">
+                            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logoo">
+                        </a>
+
+                        <ul class="navs">
+                            <li class="scroll-to-section"><a href="{{ url_for('home') }}">inicio</a></li>
+                            <li class="scroll-to-section"><a href="{{ url_for('courses') }}">Cursos</a></li>
+                            <li class="scroll-to-section"><a href="{{ url_for('login') }}">Panel de Alumno</a></li>
+                            <li class="scroll-to-section"><a href="{{ url_for('about') }}">Nosotros</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="content-container">
+        {% block content %}
+
+        {% endblock%}
+    </div>
+
+
+    <footer class="background-footer">
+        <div class="containery">
+            <div class="logop">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logoo">
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2024 Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var menuTrigger = document.querySelector(".menu-trigger");
+            var nav = document.querySelector(".navs");
+
+            if (menuTrigger) {
+                menuTrigger.addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    nav.classList.toggle("active");
+                });
+            }
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>

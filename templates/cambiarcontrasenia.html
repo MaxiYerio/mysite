@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% block body_class %}login-page{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/loginregister.css') }}">
+
+<div class="form-modal">
+  <div class="form-toggle">
+    <button id="login-toggle" onclick="window.location.href='login'">Volver</button>
+  </div>
+
+  <div id="login-form">
+    <form id="cambiarContraseniaForm">
+      <div class="inputbox">
+        <input type="text" id="email" placeholder="Correo Electrónico" required>
+        <input type="password" id="contraseniaActual" placeholder="Contraseña Actual" required>
+        <input type="password" id="nuevaContrasenia" placeholder="Nueva Contraseña" required
+          pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+          title="Debe tener al menos 8 caracteres, una mayúscula y una minúscula">
+      </div>
+      <button type="submit" class="btn signup" id="cambiarButton">Cambiar Contraseña</button>
+      <hr />
+      <span id="errorContrasenia" class="error"></span>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.getElementById("cambiarContraseniaForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    var emailInput = document.getElementById("email").value;
+    var contraseniaActualInput = document.getElementById("contraseniaActual").value;
+    var nuevaContraseniaInput = document.getElementById("nuevaContrasenia").value;
+
+    var url = "https://loginregister-c1df2-default-rtdb.firebaseio.com/registro.json";
+
+    var regexContrasenia = /^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/;
+    if (!regexContrasenia.test(nuevaContraseniaInput)) {
+      document.getElementById("errorContrasenia").innerText = "La contraseña debe tener al menos 8 caracteres y incluir una mayúscula.";
+      return;
+    } else {
+      document.getElementById("errorContrasenia").innerText = "";
+    }
+
+    fetch(url)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        var registros = Object.keys(data).map(key => ({ id: key, ...data[key] }));
+
+        var registroEncontrado = registros.find(registro => registro.email === emailInput && registro.password === contraseniaActualInput);
+
+        if (registroEncontrado) {
+          var registroUrl = `https://loginregister-c1df2-default-rtdb.firebaseio.com/registro/${registroEncontrado.id}/password.json`;
+          fetch(registroUrl, {
+            method: "PUT",
+            body: JSON.stringify(nuevaContraseniaInput)
+          })
+            .then(function (response) {
+              alert("Contraseña actualizada correctamente.");
+              document.getElementById("cambiarContraseniaForm").reset();
+            })
+            .catch(function (error) {
+              alert("Ha ocurrido un error al actualizar la contraseña. Por favor, intenta nuevamente.");
+              console.error(error);
+            });
+        } else {
+          document.getElementById("errorContrasenia").innerText = "Los datos ingresados son incorrectos.";
+        }
+      })
+      .catch(function (error) {
+        document.getElementById("errorContrasenia").innerText = "Ha ocurrido un error. Por favor, intenta nuevamente.";
+        console.error(error);
+      });
+  });
+</script>
+
+
+{% endblock %}

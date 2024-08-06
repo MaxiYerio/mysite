@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    fetch('https://cursos-6e28b-default-rtdb.firebaseio.com/Cursos.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.querySelector('.container');
+        Object.values(data).forEach(course => {
+          const courseCard = document.createElement('div');
+          courseCard.classList.add('w-full', 'md:w-1/2', 'lg:w-1/4', 'p-4');
+
+          courseCard.innerHTML = `
+            <div class="bg-white rounded-lg shadow-lg p-4 transition-transform transform hover:scale-105 hover:shadow-xl">
+              <figure class="relative mb-4 rounded-lg overflow-hidden">
+                <img src="${course.imagen}" alt="${course.nombre}" class="w-full h-48 object-contain" />
+              </figure>
+              <div class="flex flex-col">
+                <h5 class="text-gray-800 text-xl font-semibold mb-2">
+                  ${course.nombre}
+                </h5>
+                <span class="text-gray-500 text-sm mb-4">${course.extra}</span>
+                <div class="flex items-center justify-between">
+                  <div class="text-lg text-gray-800 font-medium">
+                    ${course.precio}
+                  </div>
+                  <a href="javascript:;" onclick="comprarCurso('${course.nombre}')" class="bg-blue-500 text-white rounded-full px-4 py-2 text-sm font-semibold hover:bg-blue-600 transition duration-300">
+                    Comprar
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
+
+          container.appendChild(courseCard);
+        });
+      })
+      .catch(error => console.error('Error fetching courses:', error));
+  });
+
+  function comprarCurso(courseName) {
+    window.location.href = `/login?course=${encodeURIComponent(courseName)}`;
+  }
+</script>
+<div class="flex items-center my-4">
+  <div class="container mx-auto flex flex-wrap">
+    <!-- Cursos que vienen al consumir la api -->
+  </div>
+</div>
+
+{% endblock %}

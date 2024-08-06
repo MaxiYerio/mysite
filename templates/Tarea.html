@@ -1,0 +1,27 @@
+{% extends "layout_alumnos.html" %}
+
+{% block title %}Tareas del curso{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="extend.css">
+
+<div class="containery">
+    <section id="presentacion">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="title text-center">Tareas del curso</h2>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div id="tareas-container" class="row justify-content-center">
+
+        </div>
+    </section>
+</div>
+
+
+<script src="{{ url_for('static', filename='js/tarea.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "layout_alumnos.html" %}
+
+{% block title %}Campus Alumnos{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/extend.css') }}">
+
+<section id="recursos">
+    <div class="container">
+        <h2 class="title">¡Bienvenido de nuevo!</h2>
+        <p class="text">Estamos encantados de verte de nuevo en el campus online. Aquí puedes explorar tus cursos, acceder a recursos importantes y mantenerte al día con las últimas tareas.</p>
+        <p class="text">No olvides revisar tus tareas, es importante que te mantegas a dia</p>
+        <a href="tarea" class="btn-primary">Ver mis Tareas</a>
+    </div>
+</section>
+
+<section id="recursos">
+    <div class="container">
+        <h2 class="title">Avisos Importantes</h2>
+        <ul class="avisos-list">
+            <li>
+                <h3 class="avisos-title">Fecha límite de inscripción</h3>
+                <p class="avisos-text">La inscripción para el nuevo semestre cierra el 30 de julio. ¡Asegúrate de completar tu inscripción a tiempo!</p>
+            </li>
+            <li>
+                <h3 class="avisos-title">Mantenimiento programado</h3>
+                <p class="avisos-text">El sistema estará en mantenimiento desde el 1 de agosto hasta el 3 de agosto. Durante este tiempo, el acceso a los cursos puede estar limitado.</p>
+            </li>
+            <li>
+                <h3 class="avisos-title">Nuevo curso disponible</h3>
+                <p class="avisos-text">Estamos lanzando un nuevo curso de Desarrollo Web. Inscríbete ahora y aprovecha el descuento especial del 20%.</p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section id="recursos">
+    <div class="container">
+        <h2 class="title">Recursos Adicionales</h2>
+        <p class="text">Accede a materiales y recursos adicionales para ayudarte en tus estudios.</p>
+        <div class="recursos-grid">
+            <div class="recurso">
+                <h3 class="recurso-title">Biblioteca Digital</h3>
+                <p class="recurso-text">Encuentra libros, artículos y otros materiales relevantes para tus cursos.</p>
+                <a href="#" class="btn-secondary">Acceder</a>
+            </div>
+            <div class="recurso">
+                <h3 class="recurso-title">Foros de Discusión</h3>
+                <p class="recurso-text">Participa en foros para discutir temas relacionados con tus cursos con otros alumnos y profesores.</p>
+                <a href="#" class="btn-secondary">Participar</a>
+            </div>
+            <div class="recurso">
+                <h3 class="recurso-title">Soporte Técnico</h3>
+                <p class="recurso-text">Si necesitas ayuda con el sistema o tienes problemas técnicos, contacta a nuestro equipo de soporte.</p>
+                <a href="#" class="btn-secondary">Contactar</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/extend.css') }}">
+
+<section id="presntacion">
+    <div class="container">
+        <h2 class="title">Bienvenido a Academia Online</h2>
+        <p class="text">Descubre una amplia variedad de cursos online y accede a una plataforma de aprendizaje
+            interactiva.</p>
+        <a href="{{ url_for('courses') }}" class="btn">Explorar Cursos</a>
+    </div>
+</section>
+
+<div class="container-fluid eam-section py-5">
+    <div class="container pt-5 pb-3">
+        <div class="text-center mb-5">
+            <h1>En esta plataforma online de cursos tenemos todo tipo de oportunidades para vos </h1>
+        </div>
+        <div class="rowho">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="cursor cat-item position-relative overflow-hidden rounded mb-2">
+                    <img class="img-fluid" src="{{ url_for('static', filename='images/cat-1.jpg') }}" alt="Diseño Web">
+                    <a class="cat-overlay text-white text-decoration-none">
+                        <h4 class="text-white font-weight-medium">Diseño Web</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="cursor cat-item position-relative overflow-hidden rounded mb-2">
+                    <img class="img-fluid" src="{{ url_for('static', filename='images/cat-2.jpg') }}" alt="Desarrollo">
+                    <a class="cat-overlay text-white text-decoration-none">
+                        <h4 class="text-white font-weight-medium">Desarrollo</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="cursor cat-item position-relative overflow-hidden rounded mb-2">
+                    <img class="img-fluid" src="{{ url_for('static', filename='images/cat-3.jpg') }}"
+                        alt="Diseño de Juegos">
+                    <a class="cat-overlay text-white text-decoration-none">
+                        <h4 class="text-white font-weight-medium">Diseño de Juegos</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="cursor cat-item position-relative overflow-hidden rounded mb-2">
+                    <img class="img-fluid" src="{{ url_for('static', filename='images/cat-4.jpg') }}"
+                        alt="Diseño de Apps">
+                    <a class="cat-overlay text-white text-decoration-none">
+                        <h4 class="text-white font-weight-medium">Diseño de Apps</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="cursor cat-item position-relative overflow-hidden rounded mb-2">
+                    <img class="img-fluid" src="{{ url_for('static', filename='images/cat-5.jpg') }}" alt="Marketing">
+                    <a class="cat-overlay text-white text-decoration-none">
+                        <h4 class="text-white font-weight-medium">Marketing</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="cursor cat-item position-relative overflow-hidden rounded mb-2">
+                    <img class="img-fluid" src="{{ url_for('static', filename='images/cat-6.jpg') }}"
+                        alt="Investigación">
+                    <a class="cat-overlay text-white text-decoration-none">
+                        <h4 class="text-white font-weight-medium">Investigación</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="cursor cat-item position-relative overflow-hidden rounded mb-2">
+                    <img class="img-fluid" src="{{ url_for('static', filename='images/cat-7.jpg') }}"
+                        alt="Redacción de Contenido">
+                    <a class="cat-overlay text-white text-decoration-none">
+                        <h4 class="text-white font-weight-medium">Redac. de Contenido</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="cursor cat-item position-relative overflow-hidden rounded mb-2">
+                    <img class="img-fluid" src="{{ url_for('static', filename='images/cat-8.jpg') }}" alt="SEO">
+                    <a class="cat-overlay text-white text-decoration-none">
+                        <h4 class="text-white font-weight-medium">SEO</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="tam-section">
+    <h2>Nuestros Profesores</h2>
+    <div class="team-container">
+        <div class="team-member">
+            <img src="{{ url_for('static', filename='images/profe1.jpg') }}" alt="Ryan Wilson">
+            <div class="member-info">
+                <h3>Ryan Wilson</h3>
+                <p>Director of Production</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="{{ url_for('static', filename='images/profe2.jpg') }}" alt="Jill Peterson">
+            <div class="member-info">
+                <h3>Jill Peterson</h3>
+                <p>UI Designer</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="{{ url_for('static', filename='images/profe3.jpg') }}" alt="Sam Robinson">
+            <div class="member-info">
+                <h3>Sam Robinson</h3>
+                <p>Senior Developer</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="{{ url_for('static', filename='images/profe4.jpg') }}" alt="Mary Lee">
+            <div class="member-info">
+                <h3>Mary Lee</h3>
+                <p>Software Developer</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contacto">
+    <div class="container">
+        <h2 class="title">Contacto</h2>
+        <p class="text">Si tienes alguna_ duda, necesitas ayuda con la pagina o en algo puedes contactarte con
+            nosotros y te estaremos respondiendo a la brevedad.</p>
+
+        <div class="socialw fadeInDown">
+
+            <a href="https://facebook.com/" target="_blank">
+                <div class="social"><img src="{{ url_for('static', filename='icons/facebook.png') }}" /></div>
+            </a>
+
+            <a href="https://facebook.com/" target="_blank">
+                <div class="social"><img src="{{ url_for('static', filename='icons/gmail.png') }}" /></div>
+            </a>
+
+            <a href="http://instagram.com/" target="_blank">
+                <div class="social"> <img src="{{ url_for('static', filename='icons/instagram.png') }}" /></div>
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+
+{% endblock%}

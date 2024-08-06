@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block body_class %}login-page{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/loginregister.css') }}">
+
+<div class="form-modal">
+    <div class="form-toggle">
+        <button id="login-toggle" onclick="toggleLogin()">Iniciar sesión</button>
+        <button id="signup-toggle" onclick="toggleSignup()">Registrarse</button>
+    </div>
+
+    <div id="login-form">
+        <form>
+            <div class="inputbox">
+                <input type="email" id="loginEmail" placeholder="Correo Electrónico" required>
+                <input type="password" id="loginPassword" placeholder="Contraseña" required>
+            </div>
+            <p><a href="CambiarContraseña">¿Olvidaste tu contraseña?</a></p>
+            <button type="button" class="btn login" id="loginButton">Iniciar sesión</button>
+            <hr />
+        </form>
+    </div>
+
+    <div id="signup-form" class="hide">
+        <form>
+            <div class="inputbox">
+                <input type="text" id="signupFullname" placeholder="Nombre Completo" required>
+                <input type="email" id="signupEmail" placeholder="Correo Electrónico" required>
+                <input type="password" id="signupPassword" placeholder="Contraseña" required
+                    pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                    title="Debe tener al menos 8 caracteres, una mayúscula y una minúscula">
+                <input type="hidden" id="signupCourse" name="course">
+            </div>
+            <button type="button" class="btn signup" id="signupButton">Regístrate</button>
+            <hr />
+        </form>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/loginregister.js') }}"></script>
+{% endblock %}
